@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeftIcon } from '@heroicons/react/24/solid';
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const Profile = () => {
     const [formData, setFormData] = useState({
@@ -83,46 +84,51 @@ const Profile = () => {
     }
 
     return (
-        <>
+        <div className="flex flex-col min-h-screen bg-gray-50">
             <Header />
-            <div className="max-w-4xl mx-auto mt-12 px-4 relative">
-                <button
-                    onClick={() => navigate(-1)}
-                    className="absolute top-4 right-4 bg-white p-2 shadow-sm border border-gray-200 rounded-full hover:bg-blue-50 transition"
-                >
-                    <ArrowLeftIcon className="h-5 w-5 text-blue-600" />
-                </button>
 
-                <div className="mb-8">
-                    <h1 className="text-3xl font-bold text-gray-800">{formData.name || "Student Name"}</h1>
-                    <p className="text-sm text-gray-500 mt-1">{formData.collegename || "College Name"}</p>
-                </div>
+            <main className="flex-grow">
+                <div className="max-w-4xl mx-auto mt-12 px-4 relative">
+                    <button
+                        onClick={() => navigate(-1)}
+                        className="absolute top-4 right-4 bg-white p-2 shadow-sm border border-gray-200 rounded-full hover:bg-blue-50 transition"
+                    >
+                        <ArrowLeftIcon className="h-5 w-5 text-blue-600" />
+                    </button>
 
-                <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
-                    {message && (
-                        <p className="mb-5 px-4 py-2 bg-blue-50 border border-blue-200 rounded text-blue-700 text-sm">
-                            {message}
-                        </p>
-                    )}
+                    <div className="mb-8">
+                        <h1 className="text-3xl font-bold text-gray-800">{formData.name || "Student Name"}</h1>
+                        <p className="text-sm text-gray-500 mt-1">{formData.collegename || "College Name"}</p>
+                    </div>
 
-                    <div className="space-y-5">
-                        {["name", "department", "yop", "collegename"].map((field) => (
-                            <EditableField
-                                key={field}
-                                label={labelMap[field]}
-                                name={field}
-                                value={formData[field]}
-                                isEditing={editingField === field}
-                                onEdit={() => handleEdit(field)}
-                                onChange={handleChange}
-                                onSave={handleSave}
-                                onCancel={handleCancel}
-                            />
-                        ))}
+                    <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                        {message && (
+                            <p className="mb-5 px-4 py-2 bg-blue-50 border border-blue-200 rounded text-blue-700 text-sm">
+                                {message}
+                            </p>
+                        )}
+
+                        <div className="space-y-5">
+                            {["name", "department", "yop", "collegename"].map((field) => (
+                                <EditableField
+                                    key={field}
+                                    label={labelMap[field]}
+                                    name={field}
+                                    value={formData[field]}
+                                    isEditing={editingField === field}
+                                    onEdit={() => handleEdit(field)}
+                                    onChange={handleChange}
+                                    onSave={handleSave}
+                                    onCancel={handleCancel}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </div>
-            </div>
-        </>
+            </main>
+
+            <Footer />
+        </div>
     );
 };
 
@@ -183,7 +189,9 @@ const EditableField = ({
                     </>
                 )}
             </div>
+
         </div>
+
     );
 };
 

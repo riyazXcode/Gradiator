@@ -5,6 +5,7 @@ const authRoutes = require('./src/routes/auth');
 const profileRoutes = require('./src/routes/profileRoutes');
 const cgpaRoutes = require('./src/routes/cgpaRoutes')
 const cors = require('cors');
+const helmet = require("helmet");
 
 dotenv.config();
 connectDB();
@@ -12,6 +13,7 @@ connectDB();
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(helmet());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/profile', profileRoutes);

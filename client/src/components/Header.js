@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserCircleIcon } from '@heroicons/react/24/solid';
-import logo from 'url:../../public/assets/g1.svg';
+import logo from 'url:../../public/assets/logomain.svg';
 
 const Header = () => {
     const navigate = useNavigate();
