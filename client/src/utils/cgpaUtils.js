@@ -25,7 +25,7 @@ export const calculateSGPA = (subjects) => {
         totalCredits += credit;
     });
 
-    return totalCredits ? (totalPoints / totalCredits).toFixed(2) : 0;
+    return totalCredits ? (totalPoints / totalCredits).toFixed(3) : 0;
 };
 
 export const calculateCGPA = (semesters) => {
@@ -40,5 +40,5 @@ export const calculateCGPA = (semesters) => {
         });
     });
 
-    return totalCredits ? (totalPoints / totalCredits).toFixed(2) : 0;
+    return totalCredits ? (totalPoints / totalCredits).toFixed(3) : 0;
 };

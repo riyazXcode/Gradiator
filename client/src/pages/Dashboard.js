@@ -31,7 +31,7 @@ const Dashboard = () => {
                             </p>
                             <button
                                 onClick={() => navigate('/cgpacalculator')}
-                                className="w-full bg-purple-700 text-white font-semibold py-3 rounded-lg hover:bg-purple-800 active:scale-95 transition-transform"
+                                className="w-full bg-purple-700 text-white font-semibold py-3 rounded-lg hover:bg-purple-800 duration-500"
                             >
                                 Try Now!
                             </button>
