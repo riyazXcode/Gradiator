@@ -29,7 +29,7 @@ const CGPACalculator = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const cgpaRes = await axios.get(`${process.env.ROOT_URL_BACKEND}/api/cgpa/`, {
+                const cgpaRes = await axios.get(`${import.meta.env.PUBLIC_ROOT_URL_BACKEND}/api/cgpa/`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setSemesters(
@@ -42,7 +42,7 @@ const CGPACalculator = () => {
             }
 
             try {
-                const profileRes = await axios.get(`${process.env.ROOT_URL_BACKEND}/api/profile`, {
+                const profileRes = await axios.get(`${import.meta.env.PUBLIC_ROOT_URL_BACKEND}/api/profile`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setFormData(profileRes.data);
@@ -91,7 +91,7 @@ const CGPACalculator = () => {
 
     const saveCGPA = () => {
         axios
-            .post(`${process.env.ROOT_URL_BACKEND}/api/cgpa/save`, { semesters }, {
+            .post(`${process.env.PUBLIC_ROOT_URL_BACKEND}/api/cgpa/save`, { semesters }, {
                 headers: { Authorization: `Bearer ${token}` },
             })
             .then(() => {

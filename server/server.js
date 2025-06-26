@@ -12,8 +12,17 @@ connectDB();
 
 const app = express();
 app.use(express.json());
-app.use(cors());
-app.use(helmet());
+app.use(
+    helmet({
+        contentSecurityPolicy: false,
+        crossOriginResourcePolicy: false,
+    })
+);
+
+app.use(cors({
+    origin: 'https://gradiator.skylancers.in',
+    credentials: true
+}));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/profile', profileRoutes);

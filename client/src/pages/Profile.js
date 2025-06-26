@@ -24,7 +24,7 @@ const Profile = () => {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const { data } = await axios.get(`${process.env.ROOT_URL_BACKEND}/api/profile`, {
+                const { data } = await axios.get(`${process.env.PUBLIC_ROOT_URL_BACKEND}/api/profile`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
 
@@ -57,7 +57,7 @@ const Profile = () => {
     const handleSave = async () => {
         try {
             const { data } = await axios.post(
-                `${process.env.ROOT_URL_BACKEND}/api/profile`,
+                `${process.env.PUBLIC_ROOT_URL_BACKEND}/api/profile`,
                 formData,
                 {
                     headers: {

@@ -15,7 +15,7 @@ const Login = () => {
         e.preventDefault();
         setError('');
         try {
-            const res = await fetch(`${process.env.ROOT_URL_BACKEND}/api/auth/login`, {
+            const res = await fetch(`${process.env.PUBLIC_ROOT_URL_BACKEND}/api/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(form),
